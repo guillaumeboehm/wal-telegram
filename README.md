@@ -17,7 +17,7 @@ cd ~/.wal-telegram
 # If you want to use a 16-colors palette of yours.
 ~/.wal-telegram/wal-telegram --palette '/path/to/palette.sh'
 
-# If you want to use a single color background based on you palette.
+# If you want to use a single color background based on your palette.
 ~/.wal-telegram/wal-telegram --wal --tiled
 # or
 ~/.wal-telegram/wal-telegram --palette '/path/to/palette.sh' --tiled
@@ -29,19 +29,19 @@ To set the palette follow these steps:
 
 1. Open telegram, go to "settings/chat settings" and click on choose from file:
 
-![instruction 1](https://user-images.githubusercontent.com/40271651/42967114-863e1890-8b9f-11e8-80f5-3b52ff75cdef.png)
+![instruction 1](https://user-images.githubusercontent.com/12833794/149529858-fd874908-e0c9-4fd2-b2cf-e4b399ca6e0b.png)
 
 2. Toggle hidden files
 
-![instruction 2](https://user-images.githubusercontent.com/40271651/42967489-b054cf42-8ba0-11e8-925d-7ca11597a537.png)
+![instruction 2](https://user-images.githubusercontent.com/12833794/149529871-7e78aa31-cd17-4b20-a11e-e310d8ad0320.png)
 
 3. Double click on ~/.cache/wal-telegram/wal.tdesktop-theme or ~/.cache/wal-telegram/palette.tdesktop-theme:
 
-![instruction 3](https://user-images.githubusercontent.com/40271651/42967681-5592a5ce-8ba1-11e8-83f3-195d3c14f3f8.png)
+![instruction 3](https://user-images.githubusercontent.com/12833794/149529880-6ec34462-e0f5-4e84-bb48-90f7a0041221.png)
 
 4. Click on keep changes:
 
-![instruction 4](https://user-images.githubusercontent.com/40271651/42968072-8a87aa8a-8ba2-11e8-85d7-8c4de2ceb391.png)
+![instruction 4](https://user-images.githubusercontent.com/12833794/149529889-d523d0f2-6adf-4650-93b2-d101b8472584.png)
 
 # Updating
 
@@ -53,9 +53,9 @@ git pull
 
 # Screenshots
 
-<img src="https://user-images.githubusercontent.com/40271651/42736395-79242280-8866-11e8-8419-a9dc0b22be4c.png" alt="demo" align="center">
-<img src="https://user-images.githubusercontent.com/40271651/42736398-7e628d04-8866-11e8-9b40-ee09c09910d7.png" alt="demo" align="center">
-<img src="https://user-images.githubusercontent.com/40271651/42736400-81f08110-8866-11e8-860d-d71c3e1b4c10.png" alt="demo" align="center">
+<img src="https://user-images.githubusercontent.com/12833794/149529818-69b857e1-57e0-4330-81d2-f1457286228d.png" alt="demo" align="center">
+<img src="https://user-images.githubusercontent.com/12833794/149529834-56b6b349-80a6-49bc-b2e0-9a08b7c1c587.png" alt="demo" align="center">
+<img src="https://user-images.githubusercontent.com/12833794/149529843-48b8456a-60d3-46e5-af40-a8209e3ba355.png" alt="demo" align="center">
 
 # Palette specifications
 
