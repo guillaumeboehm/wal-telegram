@@ -17,10 +17,10 @@ Use the --help (or -h) to call this help function.
 /!\ Option order is important for now
 
 e.g.
-  ./wal-telegram --wal
-  ./wal-telegram --wal --tiled
-  ./wal-telegram --palette ~/progetti/themes/sh/material-default.sh
-  ./wal-telegram --palette ~/progetti/themes/sh/material-default.sh --tiled
+  wal-telegram --wal
+  wal-telegram --wal --tiled
+  wal-telegram --palette ~/progetti/themes/sh/material-default.sh
+  wal-telegram --palette ~/progetti/themes/sh/material-default.sh --tiled
 EOF
 }
 
