@@ -14,6 +14,7 @@ Use the --wal (or -w) parameter if you want to generate a Telegram palette that 
 Use the --palette (or -p) '/path/to/palette' parameter if you want to generate a Telegram palette that uses the colors from a colorscheme specified in a text file.
 Use the --tiled (or -t) option to use a unified color tiling backgroung.
 Use the --help (or -h) to call this help function.
+
 /!\ Option order is important for now
 
 e.g.
