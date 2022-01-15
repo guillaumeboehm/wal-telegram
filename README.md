@@ -23,7 +23,6 @@ wal-telegram --palette '/path/to/palette.sh'
 
 # If you want to use a single color background based on your palette.
 wal-telegram --wal --tiled
-# or
 wal-telegram --palette '/path/to/palette.sh' --tiled
 ```
 
