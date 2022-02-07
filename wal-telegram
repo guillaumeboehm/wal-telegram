@@ -31,7 +31,7 @@ script_dir=$(readlink -f ${0} | sed "s#/$(basename ${0})##")
 command -v zip > /dev/null || (echo "A zipping utility is needed for this script, consider installing zip or gzip" && exit 0)
 [[ "$2" && "$1" == --palette || "$1" == -p ]] && mode="palette" && . "$2"
 if [[ "$1" == --wal  || "$1" == -w ]]; then
-  [ -d "${HOME}/.cache/wal" ] && echo "wal must be run before running wal-telegram." && exit 0
+  [ -d "${HOME}/.cache/wal" ] || echo "wal must be run before running wal-telegram." && exit 0
   mode="wal" && . "${HOME}/.cache/wal/colors.sh"
 fi
 [[ "$1" == --help || "$1" == -h || -z "$1" ]] && help && exit 0
