@@ -30,7 +30,7 @@ script_dir=$(readlink -f ${0} | sed "s#/$(basename ${0})##")
 # shellcheck source=/dev/null
 command -v zip > /dev/null || (echo "A zipping utility is needed for this script, consider installing zip or gzip" && exit 0)
 [[ "$2" && "$1" == --palette || "$1" == -p ]] && mode="palette" && . "$2"
-[[ "$1" == --wal  || "$1" == -w ]]            && mode="wal"     && ([ -d "${HOME}/.cache/wal" ] || echo "wal must be run before running wal-telegram." && exit 0) && . "${HOME}/.cache/wal/colors.sh"
+[[ "$1" == --wal  || "$1" == -w ]]            && mode="wal"     && ([ -d "${HOME}/.cache/wal" ] || (echo "wal must be run before running wal-telegram." && exit 0)) && . "${HOME}/.cache/wal/colors.sh"
 [[ "$1" == --help || "$1" == -h || -z "$1" ]] && help && exit 0
 bg="background"
 [[ "$2" && "$mode" == wal && ("$2" == --tiled || "$2" == -t) ]] && bg="tiled"
