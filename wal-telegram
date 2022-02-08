@@ -41,6 +41,7 @@ command -v zip > /dev/null || (echo "A zipping utility is needed for this script
 bg="background"
 [[ "$2" && "$mode" == wal && ("$2" == --tiled || "$2" == -t) ]] && bg="tiled"
 [[ "$3" && "$mode" == palette && ("$3" == --tiled || "$3" == -t) ]] && bg="tiled"
+[[ -z $mode ]] && help && exit 77
 
 # Prepare the conditions for the other functions.
 prepare() {
