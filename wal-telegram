@@ -34,7 +34,7 @@ script_dir=$(readlink -f ${0} | sed "s#/$(basename ${0})##")
 # shellcheck source=/dev/null
 command -v zip > /dev/null || (echo "A zipping utility is needed for this script, consider installing zip or gzip" && exit 77)
 [[ "$1" == --help || "$1" == -h || -z "$1" ]] && help && exit 0
-[[ "$1" == --palette || "$1" == -p ]] && mode="palette" && [[ ! -f "$2" ]] && echo "Palette error." && help && exit 77
+[[ "$1" == --palette || "$1" == -p ]] && mode="palette" && [[ ! -f "$2" ]] && echo "Palette error see --help for usage examples." && exit 77
 [[ "$mode" == palette ]] && . "$2"
 [[ "$1" == --wal  || "$1" == -w ]] && mode="wal" && [ ! -d "${HOME}/.cache/wal" ] && echo "wal must be run before running wal-telegram." && exit 77
 [[ "$mode" == wal ]] && . "${HOME}/.cache/wal/colors.sh"
@@ -307,7 +307,7 @@ EOF
 }
 
 main() {
-  prepare && create_colors && create_palette printf '%b\n' "\\e[1;31m::\\e[0m \\e[1;37mPalette generated succesfully.\\e[0m"
+  prepare && create_colors && create_palette && printf '%b\n' "\\e[1;31m::\\e[0m \\e[1;37mPalette generated succesfully.\\e[0m"
 }
 
 main
