@@ -8,7 +8,7 @@ install:
 	install -Dm755 ./wal-telegram "$(PREFIX)/wal-telegram/wal-telegram"
 	install -Dm644 ./colors.wt-constants "$(PREFIX)/wal-telegram/colors.wt-constants"
 	rm -f $(PREFIX)/wal-telegram/.shortcut
-	echo "/bin/sh -c \"$(PREFIX)/wal-telegram/wal-telegram \"\$$@\"\"" >> $(PREFIX)/wal-telegram/.shortcut
+	echo "/bin/sh -c \"$(PREFIX)/wal-telegram/wal-telegram \$$*\"" >> $(PREFIX)/wal-telegram/.shortcut
 	chmod 755 $(PREFIX)/wal-telegram/.shortcut
 	install -Dm755 $(PREFIX)/wal-telegram/.shortcut "/usr/bin/wal-telegram"
 
