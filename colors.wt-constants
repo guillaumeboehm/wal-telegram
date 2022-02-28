@@ -569,5 +569,17 @@ botKbDownBg: colorLighter0_40;                               // [UNTESTED]:
 // Overview
 overviewCheckBorder: color2;                                 // [UNTESTED]:
 
+// Sidebar
+sideBarBg: color0;
+sideBarBgActive: color2;
+sideBarBgRipple: color1;
+sideBarTextFg: color1;
+sideBarTextFgActive: color7;
+sideBarIconFg: color7;
+sideBarIconFgActive: colorLighter7_40;
+sideBarBadgeBg: color1;
+sideBarBadgeBgMuted: colorDarker7_40;
+sideBarBadgeFg: colorLighter7_40;
+
 // DUNNO
 profileOtherAdminStarFg: color7;                             // [UNTESTED]:
