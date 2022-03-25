@@ -360,7 +360,7 @@ msgServiceBgSelected: color2;                                // bg mex di serviz
 msgInReplyBarColor: color2;                                  // inbox colore testo tipo inoltrato da ecc... non selezionato
 msgInReplyBarSelColor: colorLighter7_40;                     // inbox colore testo tipo inoltrato da ecc.... selezionato
 msgOutReplyBarColor: color2;                                 // outbox colore testo tipo inoltrato da ecc.... non selezionato 
-msgOutReplyBarSelColor: colorLighte7_40;                     // outbox colore testo tipo inoltrato da ecc.... selezionato 
+msgOutReplyBarSelColor: colorLighter7_40;                     // outbox colore testo tipo inoltrato da ecc.... selezionato 
 msgImgReplyBarColor: msgServiceFg;                           // [UNTESTED]: colore testo inoltrato qunado si tratta di immagini
 msgInMonoFg: color7;                                         // inbox mex monospace non selezionato
 msgInMonoFgSelected: colorLighter7_40;                       // inbox mex monospace selezionato
@@ -389,12 +389,12 @@ msgFile2BgDark: colorDarker2_30;                             // [UNTESTED]: gree
 msgFile2BgOver: colorLighter2_40;                            // [UNTESTED]: green shared files without image download circle background with mouse over
 msgFile2BgSelected: colorLighter7_40;                        // [UNTESTED]: green shared files without image download circle background if file is selected
 msgFile3Bg: color3;                                          // [UNTESTED]: red shared links / shared files without image square thumbnail
-msgFile3BgDark: colorDarker3_30;                             // [UNTESTED]: red shared files without image download circle background
-msgFile3BgOver: colorLighter3_40;                            // [UNTESTED]: red shared files without image download circle background with mouse over
+msgFile3BgDark: colorDarker7_30;                             // [UNTESTED]: red shared files without image download circle background
+msgFile3BgOver: colorLighter7_40;                            // [UNTESTED]: red shared files without image download circle background with mouse over
 msgFile3BgSelected: colorLighter7_40;                        // [UNTESTED]: red shared files without image download circle background if file is selected
-msgFile4Bg: color4;                                          // [UNTESTED]: yellow shared links / shared files without image square thumbnail
-msgFile4BgDark: colorDarker4_30;                             // [UNTESTED]: yellow shared files without image download circle background
-msgFile4BgOver: colorLighter4_40;                            // [UNTESTED]: yellow shared files without image download circle background with mouse over
+msgFile4Bg: color3;                                          // [UNTESTED]: yellow shared links / shared files without image square thumbnail
+msgFile4BgDark: colorDarker3_30;                             // [UNTESTED]: yellow shared files without image download circle background
+msgFile4BgOver: colorLighter3_40;                            // [UNTESTED]: yellow shared files without image download circle background with mouse over
 msgFile4BgSelected: colorLighter7_40;                        // [UNTESTED]: yellow shared files without image download circle background if file is selected
 msgWaveformInActive: windowBgActive;                         // inbox ondina audio inattivo non selezionato
 msgWaveformInActiveSelected: colorLighter7_40;               // inbox ondina audio inattivo selezionato
@@ -424,7 +424,7 @@ historyFileThumbRadialFgSelected: colorLighter7_40;          // fg particella an
 historyVideoMessageProgressFg: historyFileThumbIconFg;       // [UNTESTED]: radial playback progress in round video messages
 
 // YouTube
-youtubePlayIconBg: #83131c8;                                 // [UNTESTED]: youtube play icon background (when a link to a youtube video with a webpage preview is sent)
+youtubePlayIconBg: #83131c88;                                 // [UNTESTED]: youtube play icon background (when a link to a youtube video with a webpage preview is sent)
 youtubePlayIconFg: windowFgActive;                           // [UNTESTED]: youtube play icon arrow (when a link to a youtube video with a webpage preview is sent)
 
 // Video
