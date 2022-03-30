@@ -79,6 +79,7 @@ while true; do
         exit_abnormal
       fi
       mode='palette'
+      palette_file=$2
       shift 2 ;;
     -b | --background )
       if [[ ! -f "$2" ]]; then
@@ -99,6 +100,8 @@ done
 # source this here in case wal is not an option
 if [[ "$mode" == 'wal' ]]; then
   . "${HOME}/.cache/wal/colors.sh"
+else
+  . "$palette_file"
 fi
 
 if [[ "$bg_mode" == 'tiled' ]] && [[ "$bg" != 'wal' ]]; then
