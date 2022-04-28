@@ -16,27 +16,31 @@ or from a different file containing the hex colors (see the README.md for the
 format of the file).
 
 Usage: 
-  $0 -w | --wal [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>]
-  $0 -p | --palette=</path/to/palette> [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>]
+  $0 -w | --wal [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument>]
+  $0 -p | --palette=</path/to/palette> [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument>]
   $0 -h | --help
 
 Options:
-  -h                Show command usage.
-  --help            Show this help screen.
-  -w --wal          Generate the color palette using the colors generated
-                    by pywal/wal (Default).
-  -p --palette      Use colors from an sh file to generate the color palette.
-  -t --tiled        Use a unified color background instead of an image.
-  -b --background   Use a specific image as background.
-  -d --destination  Specify a destination folder for the generated palette.
-                    (Default: ~/.cache/wal-telegram)
+  -h                  Show command usage.
+  --help              Show this help screen.
+  -w --wal            Generate the color palette using the colors generated
+                      by pywal/wal (Default).
+  -p --palette        Use colors from an sh file to generate the color palette.
+  -t --tiled          Use a unified color background instead of an image.
+  -b --background     Use a specific image as background.
+  -d --destination    Specify a destination folder for the generated palette.
+                      (Default: ~/.cache/wal-telegram)
+  -g --gaussian-blur  Blur the background image, takes a blur argument.
+                      see https://legacy.imagemagick.org/Usage/blur/#blur_args.
+                      -g takes no argument and uses the default value.
+                      (Default: 0x16)
 EOF
 }
 usage() {
   cat <<EOF
 Usage:
-  $0 --wal [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>]
-  $0 --palette=<path_to_sh_file> [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>]
+  $0 --wal [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument (default: 0x16)>]
+  $0 --palette=<path_to_sh_file> [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument (default: 0x16)>]
 EOF
 }
 exit_abnormal(){
@@ -49,7 +53,7 @@ script_dir=$(readlink -f ${0} | sed "s#/$(basename ${0})##")
 # shellcheck source=/dev/null
 command -v zip > /dev/null || (printf '%b\n' "\\e[1;31m::\\e[0m \\e[1;37mA zipping utility is needed for this script, consider installing zip or gzip\\e[0m" && exit 77)
 
-options=$(getopt -o hwtp:b:d: --long help,wal,tiled,palette:,background:,destination: -- "$@")
+options=$(getopt -o hwtp:b:d:g --long help,wal,tiled,palette:,background:,destination:,gaussian-blur: -- "$@")
 if [ $? != 0 ] ; then exit_abnormal; fi
 eval set -- "$options"
 
@@ -97,6 +101,24 @@ while true; do
         printf '%b\n\n' "\\e[1;31m::\\e[0m \\e[1;37mCould not create '$2' verify the permissions in it's parent directory and retry.\\e[0m"
         exit_abnormal
       fi
+      shift 2 ;;
+    -g)
+      if [ -n "$blur" ]; then 
+        printf '%b\n\n' "\\e[1;31m::\\e[0m \\e[1;37mDo not set -g and --gaussian-blur together.\\e[0m"
+        exit_abnormal
+      fi
+      blur="0x16" 
+      shift ;;
+    --gaussian-blur )
+      if [ -n "$blur" ]; then 
+        printf '%b\n\n' "\\e[1;31m::\\e[0m \\e[1;37mDo not set -g and --gaussian-blur together.\\e[0m"
+        exit_abnormal
+      fi
+      if [ -z "$2" ] || [ "$(expr "$2" : '^[[:digit:]]\+x[[:digit:]]\+$')" -eq 0 ]; then
+        printf '%b\n\n' "\\e[1;31m::\\e[0m \\e[1;37mBlur option not recognized, see https://legacy.imagemagick.org/Usage/blur/#blur_args for reference.\\e[0m"
+        exit_abnormal
+      fi
+      blur="$2"
       shift 2 ;;
     -- ) shift; break ;;
     * ) break ;;
@@ -382,9 +404,12 @@ colorAlpha7_14: ${color7}14;
 EOF
   const="$(<"$script_dir/colors.wt-constants")"
   printf '%s' "$const" >> "${pre}/colors.tdesktop-theme"
-  cd ${pre}
+  cd "${pre}"
   if [[ -z $bg_ext ]]; then bg_ext="png"; fi
-  convert -size 256x256 "xc:$color0" tiled.${bg_ext}
+  if [[ "$bg_mode" = "tiled" ]]; then convert -size 256x256 "xc:$color0" tiled.${bg_ext}; fi
+  if [[ -n $blur ]] && [[ "$bg_mode" = "background" ]]; then
+    convert ${bg_mode}.${bg_ext} -blur "$blur" ${bg_mode}.${bg_ext}
+  fi
   zip -q ${mode}.tdesktop-theme colors.tdesktop-theme ${bg_mode}.${bg_ext}
   cp ${mode}.tdesktop-theme "$dest"
 }
