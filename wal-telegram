@@ -16,8 +16,8 @@ or from a different file containing the hex colors (see the README.md for the
 format of the file).
 
 Usage: 
-  $0 -w | --wal [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument>]
-  $0 -p | --palette=</path/to/palette> [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument>]
+  $0 -w | --wal [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument>] [-r|--restart]
+  $0 -p | --palette=</path/to/palette> [-t|--tiled] [-b|--background=<path_to_background_image>] [-d|--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument>] [-r|--restart]
   $0 -h | --help
 
 Options:
@@ -34,13 +34,14 @@ Options:
                       see https://legacy.imagemagick.org/Usage/blur/#blur_args.
                       -g takes no argument and uses the default value.
                       (Default: 0x16)
+  -r --restart        Restart the telegram app after generation.
 EOF
 }
 usage() {
   cat <<EOF
 Usage:
-  $0 --wal [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument (default: 0x16)>]
-  $0 --palette=<path_to_sh_file> [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument (default: 0x16)>]
+  $0 --wal [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument (default: 0x16)>] [-r|--restart]
+  $0 --palette=<path_to_sh_file> [--tiled] [--background=<path_to_background_image>] [--destination=<destination_path>] [-g|--gaussian-blur=<blur_argument (default: 0x16)>] [-r|--restart]
 EOF
 }
 exit_abnormal(){
@@ -53,7 +54,7 @@ script_dir=$(readlink -f ${0} | sed "s#/$(basename ${0})##")
 # shellcheck source=/dev/null
 command -v zip > /dev/null || (printf '%b\n' "\\e[1;31m::\\e[0m \\e[1;37mA zipping utility is needed for this script, consider installing zip or gzip\\e[0m" && exit 77)
 
-options=$(getopt -o hwtp:b:d:g --long help,wal,tiled,palette:,background:,destination:,gaussian-blur: -- "$@")
+options=$(getopt -o hwtp:b:d:gr --long help,wal,tiled,palette:,background:,destination:,gaussian-blur:,restart -- "$@")
 if [ $? != 0 ] ; then exit_abnormal; fi
 eval set -- "$options"
 
@@ -66,7 +67,7 @@ while true; do
         printf '%b\n\n' "\\e[1;31m::\\e[0m \\e[1;37mCannot use wal and palette together.\\e[0m"
         exit_abnormal
       fi
-      if [[ ! -d "${HOME}/.cache/wal" ]]; then
+      if [[ ! -d "${XDG_CACHE_HOME:-${HOME}/.cache}/wal" ]]; then
         printf '%b\n\n' "\\e[1;31m::\\e[0m \\e[1;37mWal must be run before running wal-telegram.\\e[0m"
         exit_abnormal
       fi
@@ -120,6 +121,9 @@ while true; do
       fi
       blur="$2"
       shift 2 ;;
+    -r | --restart )
+      restart_on_gen=true
+      shift ;;
     -- ) shift; break ;;
     * ) break ;;
   esac
@@ -131,7 +135,7 @@ done
 
 # source this here in case wal is not an option
 if [[ "$mode" == 'wal' ]]; then
-  . "${HOME}/.cache/wal/colors.sh"
+  . "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/colors.sh"
 else
   . "$palette_file"
 fi
@@ -143,7 +147,7 @@ fi
 # Prepare the conditions for the other functions.
 prepare() {
   pre="/tmp/wal-telegram/$(date +%s)"
-  [ -z "$dest" ] && dest="${HOME}/.cache/wal-telegram"
+  [ -z "$dest" ] && dest="${XDG_CACHE_HOME:-${HOME}/.cache}/wal-telegram"
   mkdir -p "$pre"
   mkdir -p "$dest"
   rm -f "${dest}/${mode}.tdesktop-theme"
@@ -151,7 +155,7 @@ prepare() {
   if [[ "$bg" == "wal" ]]; then # if no background is specified
     if [[ "$mode" == wal ]] && [[ "$bg_mode" == "background" ]]; then
       # wal mode without tiled
-      bg_path="$(<"${HOME}/.cache/wal/wal")"
+      bg_path="$(<"${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
       bg_ext="${bg_path##*.}"
       cp "$bg_path" "${pre}/background.${bg_ext}"
     elif [[ "$mode" == "palette" ]] && [[ "$bg_mode" == "background" ]]; then
@@ -412,6 +416,7 @@ EOF
   fi
   zip -q ${mode}.tdesktop-theme colors.tdesktop-theme ${bg_mode}.${bg_ext}
   cp ${mode}.tdesktop-theme "$dest"
+  [ -n "$restart_on_gen" ] && pkill -f telegram-desktop && telegram-desktop & 
 }
 
 main() {
