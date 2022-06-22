@@ -408,13 +408,16 @@ colorAlpha7_14: ${color7}14;
 EOF
   const="$(<"$script_dir/colors.wt-constants")"
   printf '%s' "$const" >> "${pre}/colors.tdesktop-theme"
-  cd "${pre}"
+  cd "${pre}" || exit 1;
   if [[ -z $bg_ext ]]; then bg_ext="png"; fi
-  if [[ "$bg_mode" = "tiled" ]]; then convert -size 256x256 "xc:$color0" tiled.${bg_ext}; fi
-  if [[ -n $blur ]] && [[ "$bg_mode" = "background" ]]; then
-    convert ${bg_mode}.${bg_ext} -blur "$blur" ${bg_mode}.${bg_ext}
+  if [[ -n $blur ]]; then blur="-blur $blur"; fi
+  if [[ "$bg_mode" = "tiled" ]]; then convert -size 256x256 "xc:$color0" tiled.png;
+  elif [[ "$bg_mode" = "background" ]]; then
+    size=$(magick identify -format "%w" ${bg_mode}.${bg_ext})
+    # shellcheck disable=SC2086
+    convert ${bg_mode}.${bg_ext} $blur -resize $(( size > 1920 ? size : 1920 )) ${bg_mode}.png
   fi
-  zip -q ${mode}.tdesktop-theme colors.tdesktop-theme ${bg_mode}.${bg_ext}
+  zip -q ${mode}.tdesktop-theme colors.tdesktop-theme ${bg_mode}.png
   cp ${mode}.tdesktop-theme "$dest"
   [ -n "$restart_on_gen" ] && pkill -f telegram-desktop && telegram-desktop & 
 }
