@@ -37,6 +37,9 @@ wal-telegram --background
 # If you want to blur the background.
 wal-telegram -g
 
+# If you want to restart telegram on generation.
+wal-telegram -r
+
 # If you want to see detailed use of the script.
 wal-telegram --help
 ```
