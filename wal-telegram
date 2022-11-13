@@ -150,7 +150,7 @@ prepare() {
   [ -z "$dest" ] && dest="${XDG_CACHE_HOME:-${HOME}/.cache}/wal-telegram"
   mkdir -p "$pre"
   mkdir -p "$dest"
-  rm -f "${dest}/${mode}.tdesktop-theme"
+  # rm -f "${dest}/${mode}.tdesktop-theme"
 
   if [[ "$bg" == "wal" ]]; then # if no background is specified
     if [[ "$mode" == wal ]] && [[ "$bg_mode" == "background" ]]; then
@@ -409,15 +409,26 @@ EOF
   const="$(<"$script_dir/colors.wt-constants")"
   printf '%s' "$const" >> "${pre}/colors.tdesktop-theme"
   cd "${pre}" || exit 1;
-  if [[ -z $bg_ext ]]; then bg_ext="png"; fi
+  if [[ -z $bg_ext ]]; then bg_ext="jpg"; fi
   if [[ -n $blur ]]; then blur="-blur $blur"; fi
-  if [[ "$bg_mode" = "tiled" ]]; then convert -size 256x256 "xc:$color0" tiled.png;
+  if [[ "$bg_mode" = "tiled" ]]; then convert -size 256x256 "xc:$color0" tiled.jpg;
   elif [[ "$bg_mode" = "background" ]]; then
-    size=$(magick identify -format "%w" ${bg_mode}.${bg_ext})
+    img_size=$(magick identify -format "%w" ${bg_mode}.${bg_ext})
+    screen_size=$(xrandr | grep -P '(?<=connected)' | grep -oP '\d+x\d+\+\d+\+\d+' | sed 's/x/+/g' | awk -F '+' '{print $1}' | sort -ur | head -n 1)
     # shellcheck disable=SC2086
-    convert ${bg_mode}.${bg_ext} $blur -resize $(( size > 1920 ? size : 1920 )) ${bg_mode}.png
+    convert ${bg_mode}.${bg_ext} $blur -resize $(( img_size > screen_size ? img_size : screen_size )) ${bg_mode}_tmp.jpg
+
+    # Try to get the image to a nice size
+    filesize=$(magick identify -format "%B" ${bg_mode}_tmp.jpg)
+    quality=100
+    while [ $filesize -ge 1000000 ]; do
+        quality=$(( quality - 1 ))
+        convert ${bg_mode}.${bg_ext} $blur -resize $(( img_size > screen_size ? img_size : screen_size )) -quality $quality ${bg_mode}_tmp.jpg
+        filesize=$(magick identify -format "%B" ${bg_mode}_tmp.jpg)
+    done
+    mv ${bg_mode}_tmp.jpg ${bg_mode}.jpg
   fi
-  zip -q ${mode}.tdesktop-theme colors.tdesktop-theme ${bg_mode}.png
+  zip -q ${mode}.tdesktop-theme colors.tdesktop-theme ${bg_mode}.jpg
   cp ${mode}.tdesktop-theme "$dest"
   [ -n "$restart_on_gen" ] && pkill -f telegram-desktop && telegram-desktop & 
 }

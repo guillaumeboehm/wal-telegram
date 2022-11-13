@@ -393,8 +393,8 @@ msgFile3BgDark: colorDarker7_30;                             // [UNTESTED]: red 
 msgFile3BgOver: colorLighter7_40;                            // [UNTESTED]: red shared files without image download circle background with mouse over
 msgFile3BgSelected: colorLighter7_40;                        // [UNTESTED]: red shared files without image download circle background if file is selected
 msgFile4Bg: color3;                                          // [UNTESTED]: yellow shared links / shared files without image square thumbnail
-msgFile4BgDark: colorDarker3_30;                             // [UNTESTED]: yellow shared files without image download circle background
-msgFile4BgOver: colorLighter3_40;                            // [UNTESTED]: yellow shared files without image download circle background with mouse over
+//FIXME(Seems to be gone): msgFile4BgDark: colorDarker3_30;                             // [UNTESTED]: yellow shared files without image download circle background
+//FIXME(Seems to be gone): msgFile4BgOver: colorLighter3_40;                            // [UNTESTED]: yellow shared files without image download circle background with mouse over
 msgFile4BgSelected: colorLighter7_40;                        // [UNTESTED]: yellow shared files without image download circle background if file is selected
 msgWaveformInActive: windowBgActive;                         // inbox ondina audio inattivo non selezionato
 msgWaveformInActiveSelected: colorLighter7_40;               // inbox ondina audio inattivo selezionato
