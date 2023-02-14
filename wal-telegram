@@ -430,7 +430,7 @@ EOF
   fi
   zip -q ${mode}.tdesktop-theme colors.tdesktop-theme ${bg_mode}.jpg
   cp ${mode}.tdesktop-theme "$dest"
-  [ -n "$restart_on_gen" ] && pkill -f telegram-desktop && telegram-desktop & 
+  [ -n "$restart_on_gen" ] && pkill -f telegram-desktop && nohup telegram-desktop &> /dev/null & 
 }
 
 main() {
