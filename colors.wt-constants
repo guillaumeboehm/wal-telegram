@@ -15,24 +15,24 @@ colorGreen: #0bd500;
 // Basic window options
 windowBg: color0;                                            // sfondo della parte sinitra più menu opzioni e menu sinistra
 windowFg: color7;                                            // colore fg testo normale + opzioni menu tasto destra
-windowBgOver: colorLighter0_40;                              // colore bg opzioni menu sinistra e menu tasto destro con cursore sopra
+windowBgOver: colorDarker8_30;                              // colore bg opzioni menu sinistra e menu tasto destro con cursore sopra
 windowBgRipple: color1;                                      // colore bg opzioni menu sinistra e menu tasto destro con click premuto
-windowFgOver: color7;                                        // colore fg opzioni menu tasto destra con cursore sopra
+windowFgOver: color15;                                        // colore fg opzioni menu tasto destra con cursore sopra
 windowSubTextFg: colorDarker7_40;                            // testo in basso a sinistra nel menu sinistra + testo messo in meno risalto nel menu opzioni
 windowSubTextFgOver: color7;                                 // [UNTESTED]: in teoria come all'opzione sopra ma con cursore sopra
 windowBoldFg: colorLighter7_20;                              // colore testo in grassetto, che si trova nelle opzioni del menu sinstra, titoli menu opzioni e titoli descrizioni gruppo
 windowBoldFgOver: colorLighter7_40;                          // uguale a sopra ma con il cursore sopra, ad esempio nelle opzioni del menu sinistra
 windowBgActive: color2;                                      // sfondo dei tick e altre cose che "si riempiono di colore", vedi menu opzioni
 windowFgActive: colorLighter7_40;                            // fg della parte top del menu sinistra e delle cose che hanno come sfondo l'opzione sopra, segno dei tick, titolo chat attiva ecc...
-windowActiveTextFg: color2;                                  // testo online e testo sottolineato nel menu opzioni
+windowActiveTextFg: color10;                                  // testo online e testo sottolineato nel menu opzioni
 windowShadowFg: color0;                                      // ombra di contorno menu sinistra, menu opzioni e insomma un po tutti gli elementi dotati di ombra
 windowShadowFgFallback: windowBg;                            // [UNTESTED]: fallback per ombre senza opacità
 
 // Shadow
-shadowFg: colorAlpha0_18;                                    // la maggior parte delle ombre (con opacità) (il colore del divisore tra le parti della schermata principale)
+shadowFg: colorAlpha1_66;                                    // la maggior parte delle ombre (con opacità) (il colore del divisore tra le parti della schermata principale)
 
 // Slide
-slideFadeOutBg: colorAlpha0_3c;                              // animazione che c'è quando premi sulla freccia di un mex inoltrato (dalla chat al profilo)
+slideFadeOutBg: colorAlpha0_33;                              // animazione che c'è quando premi sulla freccia di un mex inoltrato (dalla chat al profilo)
 slideFadeOutShadowFg: windowShadowFg;                        // sempre parlando della animazione spiegata sopra, è la riga del lato destro che si sposta verso sinistra
 
 // Image
@@ -80,10 +80,10 @@ menuFgDisabled: colorDarker7_40;                             // testo disabilita
 menuSeparatorFg: colorDarker7_40;                            // separatore nel menu tasto destro in input field
 
 // Scroll
-scrollBarBg: colorAlpha7_53;                                 // default scroll bar current rectangle, the bar itself (like in chats list)
-scrollBarBgOver: colorAlpha7_7a;                             // default scroll bar current rectangle with mouse over it
-scrollBg: colorAlpha7_1a;                                    // default scroll bar background
-scrollBgOver: colorAlpha7_2c;                                // default scroll bar background with mouse over the scroll bar
+scrollBarBg: colorAlpha7_55;                                 // default scroll bar current rectangle, the bar itself (like in chats list)
+scrollBarBgOver: colorAlpha7_77;                             // default scroll bar current rectangle with mouse over it
+scrollBg: colorAlpha7_11;                                    // default scroll bar background
+scrollBgOver: colorAlpha7_22;                                // default scroll bar background with mouse over the scroll bar
 
 // Small
 smallCloseIconFg: colorDarker7_40;                           // piccola croce ad esempio accanto all'header nel pannello emoji
@@ -91,7 +91,7 @@ smallCloseIconFgOver: color7;                                // come sopra ma co
 
 // Radial
 radialFg: windowFgActive;                                    // [UNTESTED]: default radial loader line (like in Media Viewer when loading a photo)
-radialBg: colorAlpha0_56;                                    // [UNTESTED]: default radial loader background (like in Media Viewer when loading a photo)
+radialBg: colorAlpha0_55;                                    // [UNTESTED]: default radial loader background (like in Media Viewer when loading a photo)
 
 // Placeholder
 placeholderFg: color7;                                       // tipo il testo placeholder di deafult della barra di ricerca e dell'inserisci testo
@@ -102,8 +102,8 @@ inputBorderFg: color7;                                       // tipo l'fg della 
 
 // Filter
 filterInputBorderFg: colorLighter0_40;                        // bordo che appare quando si clicka nella barra di ricerca
-filterInputInactiveBg: colorLighter0_40;                      // bg field di ricerca inattivo
-filterInputActiveBg: colorLighter0_40;                        // bg field di ricerca attivo
+filterInputInactiveBg: colorDarker8_30;                      // bg field di ricerca inattivo
+filterInputActiveBg: colorDarker8_20;                        // bg field di ricerca attivo
 
 // Checkbox
 checkboxFg: colorDarker7_40;                                 // icone categorie emoji e anche caselle dei tick non "tickate"
@@ -118,7 +118,7 @@ tooltipFg: color0;                                           // fg del tooltip
 tooltipBorderFg: color7;                                     // bordi del tooltip
 
 // Title
-titleShadow: colorAlpha0_03;                                 // [UNTESTED]: one pixel line shadow at the bottom of custom window title
+titleShadow: colorAlpha0_11;                                 // [UNTESTED]: one pixel line shadow at the bottom of custom window title
 titleBg: color0;                                             // [UNTESTED]: custom window title background when window is inactive
 titleBgActive: titleBg;                                      // [UNTESTED]: custom window title background when window is active
 titleButtonBg: titleBg;                                      // [UNTESTED]: custom window title minimize/maximize/restore button background when window is inactive (Windows only)
@@ -148,7 +148,7 @@ trayCounterBgMacInvert: color7;                              // [UNTESTED]: tray
 trayCounterFgMacInvert: color2;                              // [UNTESTED]: tray icon counter text when tray icon is pressed or when dark theme of macOS is used (macOS only)
 
 // Layer
-layerBg: colorAlpha0_7f;                                     // fade menu opzioni e menu sinistra
+layerBg: colorAlpha0_77;                                     // fade menu opzioni e menu sinistra
 
 // Cancel
 cancelIconFg: colorDarker7_40;                               // fg croce per chiudere il menu opzioni e altre cose
@@ -174,11 +174,11 @@ contactsBgOver: color0;                                      // uguale a sopra m
 contactsNameFg: boxTextFg;                                   // fg dei nomi dei contatti nella sezione descritta sopra
 contactsStatusFg: colorDarker7_40;                           // fg dello status dei nomi dei contatti
 contactsStatusFgOver: colorDarker7_40;                       // uguale a sopra ma con il cursore sopra
-contactsStatusFgOnline: color2;                              // fg della scritta in linea nei contatti in linea appunto
+contactsStatusFgOnline: color10;                              // fg della scritta in linea nei contatti in linea appunto
 
 // Photo
 photoCropFadeBg: layerBg;                                    // lo sfondo del crop dell'immagine scelta (quando devi impostare una immagine per il gruppo o per il tuo profilo)
-photoCropPointFg: colorAlpha7_7f;                            // rettangolini che delimitano l'immagine che si sta impostando
+photoCropPointFg: colorAlpha7_77;                            // rettangolini che delimitano l'immagine che si sta impostando
 
 // Call
 callArrowFg: color2;                                         // [UNTESTED]: received phone call arrow (in calls list box)
@@ -207,16 +207,16 @@ dialogsDateFg: colorDarker7_40;                              // box dialoghi tes
 dialogsTextFg: color7;                                       // box dialoghi testo messaggi (in piccolo sotto il nome)
 dialogsTextFgService: color7;                                // box dialoghi testo messaggi del mittente
 dialogsDraftFg: color1;                                      // box dialoghi colore testo bozza
-dialogsVerifiedIconBg: color2;                                // bg icona profilo verificato
+dialogsVerifiedIconBg: color10;                                // bg icona profilo verificato
 dialogsVerifiedIconFg: color0;                                // fg icona profilo verificato
-dialogsSendingIconFg: color2;                                // icona invio messaggio (orologio)
-dialogsSentIconFg: color2;                                   // singolo/doppi tick di conferma invio mex
+dialogsSendingIconFg: color10;                                // icona invio messaggio (orologio)
+dialogsSentIconFg: color10;                                   // singolo/doppi tick di conferma invio mex
 dialogsUnreadBg: color1;                                     // [UNTESTED]: chat list unread badge background for not muted chat
 dialogsUnreadBgMuted: colorDarker7_40;                       // fg icona pinned per chat fissate
 dialogsUnreadFg: colorLighter7_40;                           // [UNTESTED]: chat list unread badge text
 
 // Dialogs over
-dialogsBgOver: colorLighter0_40;                             // cursore sopra dialog box
+dialogsBgOver: colorDarker2_50;                             // cursore sopra dialog box
 dialogsNameFgOver: windowBoldFgOver;                         // box dialoghi fg nomi con cursore sopra
 dialogsChatIconFgOver: dialogsNameFgOver;                    // box dialoghi icone gruppo o contatto con cursore sopra
 dialogsDateFgOver: colorDarker7_40;                          // box dialoghi testo data con cursore sopra
@@ -226,7 +226,7 @@ dialogsDraftFgOver: dialogsDraftFg;                          // box dialoghi col
 dialogsVerifiedIconBgOver: color2;                            // bg icona profilo verificato con cursore sopra
 dialogsVerifiedIconFgOver: color0;                            // fg icona profilo verificato con cursore sopra
 dialogsSendingIconFgOver: dialogsSendingIconFg;              // icona invio messaggio (orologio) con cursore sopra
-dialogsSentIconFgOver: color2;                               // singolo/doppi tick di conferma invio mex con cursore sopra
+dialogsSentIconFgOver: color10;                               // singolo/doppi tick di conferma invio mex con cursore sopra
 dialogsUnreadBgOver: colorDarker1_40;                        // [UNTESTED]: chat list unread badge background for not muted chat with mouse over
 dialogsUnreadBgMutedOver: colorDarker7_40;                   // [UNTESTED]: chat list unread badge background for muted chat with mouse over
 dialogsUnreadFgOver: dialogsUnreadFg;                        // [UNTESTED]: chat list unread badge text with mouse over
@@ -273,27 +273,27 @@ emojiIconFgActive: color2;                                   // fg dell'emoji at
 // Sticker
 stickerPanDeleteBg: colorAlpha0_cc;                          // [UNTESTED]: delete X button background for custom sent stickers in stickers panel (legacy)
 stickerPanDeleteFg: windowFgActive;                          // [UNTESTED]: delete X button icon for custom sent stickers in stickers panel (legacy)
-stickerPreviewBg: colorAlpha0_b0;                            // sticker and GIF preview background (when you press and hold on a sticker)
+stickerPreviewBg: colorAlpha0_bb;                            // sticker and GIF preview background (when you press and hold on a sticker)
 
 // History
 historyTextInFg: windowFg;                                   // inbox testo mex non selezionato
 historyTextInFgSelected: colorLighter7_40;                   // inbox testo mex selezionato
 historyTextOutFg: color7;                                    // outbox testo mex non selezionato
 historyTextOutFgSelected: colorLighter7_40;                  // outbox testo mex selezionato
-historyLinkInFg: color2;                                     // inbox testo link mex non selezionato
+historyLinkInFg: color10;                                     // inbox testo link mex non selezionato
 historyLinkInFgSelected: colorLighter7_40;                   // inbox testo link mex selezionato
-historyLinkOutFg: color2;                                    // outbox testo link mex non selezionato
+historyLinkOutFg: color10;                                    // outbox testo link mex non selezionato
 historyLinkOutFgSelected: colorLighter7_40;                  // outbox testo link mex selezionato
 historyFileNameInFg: historyTextInFg;                        // inbox testo filename media non selezionato
 historyFileNameInFgSelected: colorLighter7_40;               // inbox testo filename media selezionato
 historyFileNameOutFg: historyTextOutFg;                      // outbox testo filename media non selezionato
 historyFileNameOutFgSelected: colorLighter7_40;              // outbox testo filename media selezionato
-historyOutIconFg: color2;                                    // outbox tick/doppio tick testo non selezionato 
+historyOutIconFg: colorLighter10_70;                                    // outbox tick/doppio tick testo non selezionato 
 historyOutIconFgSelected: colorLighter7_40;                  // outbox tick/doppio tick testo selezionato
 historyIconFgInverted: color2;                               // outbox tick/doppio tick media
 historySendingOutIconFg: color2;                             // outbox icona invio mex (orologio)
 historySendingInIconFg: color2;                              // inbox icona invio mex (orologio)
-historySendingInvertedIconFg: colorAlpha2_c8;                // inbox icona invio media (orologio)
+historySendingInvertedIconFg: colorAlpha2_cc;                // inbox icona invio media (orologio)
 historyCallArrowInFg: color1;                                // [UNTESTED]: received phone call arrow
 historyCallArrowInFgSelected: colorLighter7_40;              // [UNTESTED]: received phone call arrow in a selected message
 historyCallArrowMissedInFg: callArrowMissedFg;               // [UNTESTED]: missed phone call arrow
@@ -303,7 +303,7 @@ historyCallArrowOutFgSelected: colorLighter7_40;             // [UNTESTED]: outg
 historyUnreadBarBg: color0;                                  // [UNTESTED]: new unread messages bar background
 historyUnreadBarBorder: shadowFg;                            // [UNTESTED]: new unread messages bar shadow
 historyUnreadBarFg: color1;                                  // [UNTESTED]: new unread messages bar text
-historyForwardChooseBg: colorAlpha0_4c;                      // [UNTESTED]: forwarding messages in a large window size "choose recipient" background
+historyForwardChooseBg: colorAlpha0_44;                      // [UNTESTED]: forwarding messages in a large window size "choose recipient" background
 historyForwardChooseFg: windowFgActive;                      // [UNTESTED]: forwarding messages in a large window size "choose recipient" text
 historyPeer1NameFg: color1;                                  // nome user 1 mex non selezionato
 historyPeer1NameFgSelected: colorLighter7_40;                // nome user 1 mex selezionato
@@ -330,21 +330,21 @@ historyPeer8NameFg: color8;                                  // nome user 8 mex 
 historyPeer8NameFgSelected: colorLighter7_40;                // nome user 8 mex selezionato
 historyPeer8UserpicBg: color8;                               // bg userpic 8
 historyPeerUserpicFg: windowFgActive;                        // fg iniziali userpic
-historyScrollBarBg: colorAlpha7_7a;                          // bg contenitore barra normale
-historyScrollBarBgOver: colorAlpha7_bc;                      // bg contenitore barra con cursore sopra
-historyScrollBg: colorAlpha7_4c;                             // bg barra normale
-historyScrollBgOver: colorAlpha7_6b;                         // bg barra con cursore sopra
+historyScrollBarBg: colorAlpha7_77;                          // bg contenitore barra normale
+historyScrollBarBgOver: colorAlpha7_bb;                      // bg contenitore barra con cursore sopra
+historyScrollBg: colorAlpha7_44;                             // bg barra normale
+historyScrollBgOver: colorAlpha7_66;                         // bg barra con cursore sopra
 
 // Msg
-msgInBg: color0;                                             // inbox mex bg non selezionato
+msgInBg: colorDarker7_70;                                             // inbox mex bg non selezionato
 msgInBgSelected: color2;                                     // inbox mex bg selezionato
-msgOutBg: color0;                                            // outbox mex bg non selezionato
+msgOutBg: colorDarker8_60;                                            // outbox mex bg non selezionato
 msgOutBgSelected: color2;                                    // outbox mex bg selezionato
-msgSelectOverlay: colorAlpha2_4c;                            // overlay sopra il mex selezionato
-msgStickerOverlay: colorAlpha2_7f;                           // overlay sopra lo sticker selezionato
+msgSelectOverlay: colorAlpha2_44;                            // overlay sopra il mex selezionato
+msgStickerOverlay: colorAlpha2_77;                           // overlay sopra lo sticker selezionato
 msgInServiceFg: windowActiveTextFg;                          // inbox colore testo informazioni tipo inoltrato da... non selezionato
 msgInServiceFgSelected: colorLighter7_40;                    // inbox colore testo informazioni tipo inoltrato da... selezionato
-msgOutServiceFg: color2;                                     // outbox colore testo informazioni tipo inoltrato da... non selezionato
+msgOutServiceFg: color10;                                     // outbox colore testo informazioni tipo inoltrato da... non selezionato
 msgOutServiceFgSelected: colorLighter7_40;                   // outbox colore testo informazioni tipo inoltrato da... selezionato
 msgInShadow: colorAlpha0_00;                                 // inbox ombre mex non selezionato
 msgInShadowSelected: colorAlpha2_00;                         // inbox ombra mex selezionato
@@ -356,10 +356,10 @@ msgOutDateFg: colorDarker7_40;                               // outbox ore invo 
 msgOutDateFgSelected: colorLighter7_40;                      // outbox ore invio mex selezionato
 msgServiceFg: windowFgActive;                                // fg mex di servizio (tipo data mex, titolo del gruppo cambiato e così via)
 msgServiceBg: color0;                                        // bg mex di servizio non selezionato
-msgServiceBgSelected: color2;                                // bg mex di servizio selezionato
-msgInReplyBarColor: color2;                                  // inbox colore testo tipo inoltrato da ecc... non selezionato
+msgServiceBgSelected: color10;                                // bg mex di servizio selezionato
+msgInReplyBarColor: color10;                                  // inbox colore testo tipo inoltrato da ecc... non selezionato
 msgInReplyBarSelColor: colorLighter7_40;                     // inbox colore testo tipo inoltrato da ecc.... selezionato
-msgOutReplyBarColor: color2;                                 // outbox colore testo tipo inoltrato da ecc.... non selezionato 
+msgOutReplyBarColor: color10;                                 // outbox colore testo tipo inoltrato da ecc.... non selezionato 
 msgOutReplyBarSelColor: colorLighter7_40;                     // outbox colore testo tipo inoltrato da ecc.... selezionato 
 msgImgReplyBarColor: msgServiceFg;                           // [UNTESTED]: colore testo inoltrato qunado si tratta di immagini
 msgInMonoFg: color7;                                         // inbox mex monospace non selezionato
@@ -367,12 +367,12 @@ msgInMonoFgSelected: colorLighter7_40;                       // inbox mex monosp
 msgOutMonoFg: color7;                                        // outbox mex monospace non selezionato
 msgOutMonoFgSelected: colorLighter7_40;                      // outbox mex monospace selezionato
 msgDateImgFg: msgServiceFg;                                  // mex media fg bolla ore invio
-msgDateImgBg: colorAlpha0_54;                                // mex media bg bolla ore invio
-msgDateImgBgOver: colorAlpha0_74;                            // mex media bg bolla ore invio con cursore sopra
-msgDateImgBgSelected: colorAlpha2_87;                        // mex media bg bolla ore invio selezionato
+msgDateImgBg: colorAlpha0_55;                                // mex media bg bolla ore invio
+msgDateImgBgOver: colorAlpha0_77;                            // mex media bg bolla ore invio con cursore sopra
+msgDateImgBgSelected: colorAlpha2_88;                        // mex media bg bolla ore invio selezionato
 msgFileThumbLinkInFg: lightButtonFg;                         // inbox file media file mex scarica non selezionato
 msgFileThumbLinkInFgSelected: lightButtonFgOver;             // inbox file media file mex scarica selezionato
-msgFileThumbLinkOutFg: color2;                               // outbox file media file mex scarica non selezionato
+msgFileThumbLinkOutFg: color10;                               // outbox file media file mex scarica non selezionato
 msgFileThumbLinkOutFgSelected: colorLighter7_40;             // outbox file media file mex scarica selezionato
 msgFileInBg: color2;                                         // inbox bg file audio cerchio download 
 msgFileInBgOver: colorLighter2_30;                           // inbox bg file audio cerchio download con cursore sopra
@@ -404,19 +404,19 @@ msgWaveformOutActive: color2;                                // outbox ondina au
 msgWaveformOutActiveSelected: colorLighter7_40;              // outbox ondina audio inattivo selezionato
 msgWaveformOutInactive: colorDarker7_30;                     // outbox ondina audio attivo non selezionato
 msgWaveformOutInactiveSelected: colorLighter2_40;            // outbox ondina audio attivo selezionato
-msgBotKbOverBgAdd: colorAlpha7_14;                           // [UNTESTED]: this is painted over a bot inline keyboard button (which has msgServiceBg background) when mouse is over that button
+msgBotKbOverBgAdd: colorAlpha7_11;                           // [UNTESTED]: this is painted over a bot inline keyboard button (which has msgServiceBg background) when mouse is over that button
 msgBotKbIconFg: msgServiceFg;                                // [UNTESTED]: bot inline keyboard button icon in the top-right corner (like in @vote bot when a poll is ready to be shared)
-msgBotKbRippleBg: colorAlpha1_10;                            // [UNTESTED]: bot inline keyboard button ripple effect
+msgBotKbRippleBg: colorAlpha1_11;                            // [UNTESTED]: bot inline keyboard button ripple effect
 
 // Download animations
 historyFileInIconFg: color0;                                 // inbox freccia scaricamento file non selezionato
-historyFileInIconFgSelected: color2;                         // inbox freccia scaricamento file selezionato
+historyFileInIconFgSelected: color10;                         // inbox freccia scaricamento file selezionato
 historyFileInRadialFg: color0;                               // inbox particella animazione scaricamento file non selezionato
 historyFileInRadialFgSelected: historyFileInIconFgSelected;  // inbox particella animazione scaricamento file selezionato
 historyFileOutIconFg: color0;                                // outbox freccia scaricamento file non selezionato
-historyFileOutIconFgSelected: color2;                        // outbox freccia scaricamento file selezionato
+historyFileOutIconFgSelected: color10;                        // outbox freccia scaricamento file selezionato
 historyFileOutRadialFg: historyFileOutIconFg;                // outbox particella animazione scaricamento file non selezionato
-historyFileOutRadialFgSelected: color2;                      // outbox particella animazione scaricamento file selezionato
+historyFileOutRadialFgSelected: color10;                      // outbox particella animazione scaricamento file selezionato
 historyFileThumbIconFg: colorLighter7_40;                    // fg freccia scaricamento foto/video non selezionato
 historyFileThumbIconFgSelected: colorLighter7_40;            // fg freccia scariamento foto/video selezionato
 historyFileThumbRadialFg: historyFileThumbIconFg;            // fg particella animazione scaricamento foto/video non selezionato
@@ -428,11 +428,11 @@ youtubePlayIconBg: #83131c88;                                 // [UNTESTED]: you
 youtubePlayIconFg: windowFgActive;                           // [UNTESTED]: youtube play icon arrow (when a link to a youtube video with a webpage preview is sent)
 
 // Video
-videoPlayIconBg: colorAlpha0_7f;                             // [UNTESTED]: other video play icon background (like when a link to a vimeo video with a webpage preview is sent)
+videoPlayIconBg: colorAlpha0_77;                             // [UNTESTED]: other video play icon background (like when a link to a vimeo video with a webpage preview is sent)
 videoPlayIconFg: colorLighter7_40;                           // [UNTESTED]: other video play icon arrow (like when a link to a vimeo video with a webpage preview is sent)
 
 // Toast
-toastBg: colorAlpha0_b2;                                     // [UNTESTED]: toast notification background (like when you click on your t.me link when editing your username)
+toastBg: colorAlpha0_bb;                                     // [UNTESTED]: toast notification background (like when you click on your t.me link when editing your username)
 toastFg: windowFgActive;                                     // [UNTESTED]: toast notification text (like when you click on your t.me link when editing your username)
 
 // Report
@@ -445,7 +445,7 @@ historyToDownBgOver: colorLighter0_40;                       // bg bottone a fre
 historyToDownBgRipple: colorLighter0_60;                     // bg bottone a freccia per scorrere in fondo alla chat selezionato
 historyToDownFg: color7;                                     // fg bottone a freccia per scorrere in fondo alla chat
 historyToDownFgOver: menuIconFgOver;                         // fg bottone a freccia per scorrere in fondo alla chat con cursore sopra
-historyToDownShadow: colorAlpha0_40;                         // ombra del bottone
+historyToDownShadow: colorAlpha0_44;                         // ombra del bottone
 historyComposeAreaBg: color0;                                // bg area di composizione in basso a destra della schermata principale
 historyComposeAreaFg: historyTextInFg;                       // fg dell'area appena citata
 historyComposeAreaFgService: msgInDateFg;                    // testo mex selezionato nell'area di composizione
@@ -463,7 +463,7 @@ historyComposeButtonBgOver: colorLighter0_40;                // [UNTESTED]: unbl
 historyComposeButtonBgRipple: colorLighter0_60;              // [UNTESTED]: unblock / join channel / mute channel button ripple effect
 
 // Overview
-overviewCheckBg: colorAlpha0_40;                             // [UNTESTED]: shared files / links checkbox background for not selected rows when some rows are selected
+overviewCheckBg: colorAlpha0_44;                             // [UNTESTED]: shared files / links checkbox background for not selected rows when some rows are selected
 overviewCheckFg: colorLighter7_40;                           // [UNTESTED]: shared files / links checkbox icon for not selected rows when some rows are selected
 overviewCheckFgActive: colorLighter7_40;                     // [UNTESTED]: shared files / links checkbox icon for selected rows
 overviewPhotoSelectOverlay: colorAlpha1_33;                  // [UNTESTED]: shared photos / videos / links fill for selected rows
@@ -537,7 +537,7 @@ mediaviewTransparentFg: color7;                              // [UNTESTED]: anot
 notificationBg: windowBg;                                     // [UNTESTED]: custom notification window background
 
 // Call
-callBg: colorAlpha0_f2;                                      // [UNTESTED]: phone call popup background
+callBg: colorAlpha0_ff;                                      // [UNTESTED]: phone call popup background
 callNameFg: colorLighter7_40;                                // [UNTESTED]: phone call popup name text
 callFingerprintBg: colorAlpha0_66;                           // [UNTESTED]: phone call popup emoji fingerprint background
 callStatusFg: color7;                                        // [UNTESTED]: phone call popup status text
