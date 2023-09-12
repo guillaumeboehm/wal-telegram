@@ -278,7 +278,7 @@ create_palette() {
 
         while [ "$filesize" -ge 1000000 ]; do
             quality=$(( quality - 5 ))
-            convert "${bg_mode}.${bg_ext}" "$blur" -resize "$(( img_size > screen_size ? img_size : screen_size ))" -quality "$quality" "${bg_mode}_tmp.jpg"
+            convert "${bg_mode}.${bg_ext}" $blur -resize "$(( img_size > screen_size ? img_size : screen_size ))" -quality "$quality" "${bg_mode}_tmp.jpg"
             filesize=$(magick identify -format "%B" "${bg_mode}_tmp.jpg")
         done
 
