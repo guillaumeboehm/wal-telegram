@@ -166,7 +166,7 @@ prepare() {
     if [[ "$mode" == wal ]] && [[ "$bg_mode" == "background" ]]; then
       # wal mode without tiled
       bg_path="$(<"${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
-      bg_ext="${bg_path##*.}"
+      bg_ext="${bg_path##*/}"
       cp "$bg_path" "${pre}/background.${bg_ext}"
     elif [[ "$mode" == "palette" ]] && [[ "$bg_mode" == "background" ]]; then
       if [[ -f "${HOME}/.fehbg" ]]; then
