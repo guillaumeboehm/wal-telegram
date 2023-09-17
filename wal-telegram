@@ -203,7 +203,7 @@ prepare() {
     fi # elif mode == palette
   else # if bg == wal
     bg="$(readlink -f "$bg")"
-    bg_file="${bg_path##*/}"
+    bg_file="${bg##*/}"
     bg_file="${bg_file#.}" # if there is a '.' before the name
     bg_ext="${bg_file##*.}"
     if [[ "$bg_ext" == "$bg_file" ]]; then # if the file has no extension
