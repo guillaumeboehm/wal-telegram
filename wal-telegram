@@ -166,7 +166,11 @@ prepare() {
     if [[ "$mode" == wal ]] && [[ "$bg_mode" == "background" ]]; then
       # wal mode without tiled
       bg_path="$(<"${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
-      bg_ext="${bg_path##*.}"
+      bg_file="${bg_path##*/}"
+      bg_ext="${bg_file##*.}"
+      if [ "$bg_ext" == "$bg_file" ]; then
+        bg_ext="jpg" # Fallback on jpg
+      fi
       cp "$bg_path" "${pre}/background.${bg_ext}"
     elif [[ "$mode" == "palette" ]] && [[ "$bg_mode" == "background" ]]; then
       if [[ -f "${HOME}/.fehbg" ]]; then
@@ -174,7 +178,11 @@ prepare() {
                    | sed "s/[^']*//" \
                    | awk '{print $1}' \
                    | sed "s/'//g")"
-        bg_ext="${bg_path##*.}"
+        bg_file="${bg_path##*/}"
+        bg_ext="${bg_file##*.}"
+        if [ "$bg_ext" == "$bg_file" ]; then
+          bg_ext="jpg" # Fallback on jpg
+        fi
         if [[ -f "$bg_path" ]]; then
           cp "$bg_path" "${pre}/background.${bg_ext}"
         fi
@@ -185,7 +193,11 @@ prepare() {
     fi # elif mode == palette
   else # if bg == wal
     bg="$(readlink -f "$bg")"
-    bg_ext="${bg##*.}"
+    bg_file="${bg##*/}"
+    bg_ext="${bg_file##*.}"
+    if [ "$bg_ext" == "$bg_file" ]; then
+      bg_ext="jpg" # Fallback on jpg
+    fi
     cp "$bg" "${pre}/background.${bg_ext}"
   fi # if bg == wal
 }
