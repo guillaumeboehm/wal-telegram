@@ -54,6 +54,23 @@ script_dir=$(readlink -f ${0} | sed "s#/$(basename ${0})##")
 # shellcheck source=/dev/null
 command -v zip > /dev/null || (printf '%b\n' "\\e[1;31m::\\e[0m \\e[1;37mA zipping utility is needed for this script, consider installing zip or gzip\\e[0m" && exit 77)
 
+# do we have 'magick'
+if command -v magick >/dev/null; then
+  _convert() {
+    magick convert "$@"
+  }
+  _identify() {
+    magick identify "$@"
+  }
+else
+  _convert() {
+    convert "$@"
+  }
+  _identify() {
+    identify "$@"
+  }
+fi
+
 options=$(getopt -o hwtp:b:d:gr --long help,wal,tiled,palette:,background:,destination:,gaussian-blur:,restart -- "$@")
 if [ $? != 0 ] ; then exit_abnormal; fi
 eval set -- "$options"
@@ -292,21 +309,21 @@ create_palette() {
     if [[ -n $blur ]]; then blur="-blur $blur"; fi
 
     if [[ "$bg_mode" = "tiled" ]]; then
-        convert -size 256x256 "xc:$color0" tiled.jpg;
+        _convert -size 256x256 "xc:$color0" tiled.jpg;
     elif [[ "$bg_mode" = "background" ]]; then
-        img_size=$(magick identify -format "%w" "${bg_mode}.${bg_ext}")
+        img_size=$(_identify -format "%w" "${bg_mode}.${bg_ext}")
         screen_size=$(xrandr | grep -P '(?<=connected)' | grep -oP '\d+x\d+\+\d+\+\d+' | sed 's/x/+/g' | awk -F '+' '{print $1}' | sort -ur | head -n 1)
         # shellcheck disable=SC2086
-        convert ${bg_mode}.${bg_ext} $blur -resize $(( img_size > screen_size ? img_size : screen_size )) ${bg_mode}_tmp.jpg
+        _convert ${bg_mode}.${bg_ext} $blur -resize $(( img_size > screen_size ? img_size : screen_size )) ${bg_mode}_tmp.jpg
 
         # Try to get the image to a nice size
-        filesize=$(magick identify -format "%B" "${bg_mode}_tmp.jpg")
-        quality=$(magick identify -format "%Q" "${bg_mode}.${bg_ext}")
+        filesize=$(_identify -format "%B" "${bg_mode}_tmp.jpg")
+        quality=$(_identify -format "%Q" "${bg_mode}.${bg_ext}")
 
         while [ "$filesize" -ge 1000000 ]; do
             quality=$(( quality - 5 ))
-            convert "${bg_mode}.${bg_ext}" $blur -resize "$(( img_size > screen_size ? img_size : screen_size ))" -quality "$quality" "${bg_mode}_tmp.jpg"
-            filesize=$(magick identify -format "%B" "${bg_mode}_tmp.jpg")
+            _convert "${bg_mode}.${bg_ext}" $blur -resize "$(( img_size > screen_size ? img_size : screen_size ))" -quality "$quality" "${bg_mode}_tmp.jpg"
+            filesize=$(_identify -format "%B" "${bg_mode}_tmp.jpg")
         done
 
         mv "${bg_mode}_tmp.jpg" "${bg_mode}.jpg"
