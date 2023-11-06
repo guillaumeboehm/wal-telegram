@@ -1,5 +1,9 @@
 Based on [telegram-palette-gen] which is not maintained anymore
 
+# /!\ This project is not maintained anymore
+## For a maintained and reworked version use [walogram](https://codeberg.org/thirtysixpw/walogram)
+## For a rust version of wal-telegram use [wal-telegram-rs](https://github.com/guillaumeboehm/wal-telegram-rs)
+
 # Installation
 
 Dependencies:
