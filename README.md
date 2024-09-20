@@ -18,7 +18,7 @@ install the [wal-telegram-git] package from the aur.
 git clone --depth 1 https://github.com/guillaumeboehm/wal-telegram ~/.wal-telegram
 cd ~/.wal-telegram
 sudo make install
-cd && rm ~/.wal-telegram
+cd && rm -rf ~/.wal-telegram
 ```
 
 # Generate the color palette
